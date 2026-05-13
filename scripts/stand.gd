@@ -47,6 +47,7 @@ func update_ui():
 
 	unlock_button.text = "Unlock For $" + main.format_money(unlock_cost)
 	unlock_button.disabled = main.money < unlock_cost
+	cost_label.visible = unlocked and level < max_level
 	
 func _on_upgrade_button_pressed():
 	var main = get_tree().current_scene
@@ -68,6 +69,7 @@ func _on_upgrade_button_pressed():
 			global_position  + Vector2(100, 100), 
 			Color.RED)
 		level += 1
+		AudioManager.play_sfx(AudioManager.upgrade_sound)
 		main.update_total_income()
 		main.save_game()
 		
@@ -87,6 +89,7 @@ func _on_unlock_button_pressed():
 			Color.RED
 		)
 		unlocked = true
+		AudioManager.play_sfx(AudioManager.unlock_sound)
 		update_visibility()
 		main.update_total_income()
 		main.save_game()

@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://vqfs8qhanu14" path="res://art/yellow_stall_short.png" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bij58bbornsja" path="res://scripts/stand.gd" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://c8nyj4e3qtk2u" path="res://art/red_stall_short.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://caokmda11fhif" path="res://art/blue_stall_short.png" id="5_tipki"]
+[ext_resource type="Texture2D" uid="uid://1qc6ypcci1ej" path="res://art/blue_stall_long.png" id="6_85g3d"]
+[ext_resource type="Texture2D" uid="uid://gddv5vt7lr2u" path="res://art/yellow_stall_long.png" id="7_choun"]
+[ext_resource type="Texture2D" uid="uid://cp0286wyucl7h" path="res://art/red_stall_long.png" id="8_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://6qlivtdh70o8" path="res://scenes/settings_popup.tscn" id="9_85g3d"]
 
 [node name="Main" type="Control" unique_id=139221768]
 layout_mode = 3
@@ -26,11 +31,23 @@ theme_override_constants/separation = 50
 
 [node name="MoneyLabel" type="Label" parent="TopBar" unique_id=23423513]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "$0"
 
 [node name="IncomeLabel" type="Label" parent="TopBar" unique_id=440592339]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Income/sec: 1"
+
+[node name="Spacer" type="Control" parent="TopBar" unique_id=1061634841]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsButton" type="Button" parent="TopBar" unique_id=1891227985]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "⚙"
+flat = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=367040398]
 layout_mode = 1
@@ -48,44 +65,47 @@ grow_vertical = 2
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1650008403]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/h_separation = 20
+theme_override_constants/h_separation = 26
 theme_override_constants/v_separation = 80
 columns = 3
 
 [node name="LemonadeStand" type="Panel" parent="ScrollContainer/GridContainer" unique_id=1126218826]
-custom_minimum_size = Vector2(350, 150)
+custom_minimum_size = Vector2(350, 175)
 layout_mode = 2
 script = ExtResource("4_tbgi4")
 stand_name = "LemonadeStand"
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=650253652]
-visible = false
-position = Vector2(174.39996, 66.799995)
-scale = Vector2(2.1999996, 1.05)
+position = Vector2(174.39996, 85.232)
+scale = Vector2(2.1999996, 1.1000001)
 texture = ExtResource("3_jyhfs")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=741817555]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 110.0
 offset_top = 20.0
-offset_right = 151.0
+offset_right = 241.0
 offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 text = "Lemonade Stand"
+horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=303045649]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 60.0
+offset_top = 71.0
 offset_right = 78.0
-offset_bottom = 83.0
+offset_bottom = 94.0
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=2030704801]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 100.0
+offset_top = 111.0
 offset_right = 161.0
-offset_bottom = 123.0
+offset_bottom = 134.0
 text = "Upgrade Cost: $10"
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=669329994]
@@ -106,7 +126,7 @@ offset_bottom = 161.0
 text = "Unlock For $100"
 
 [node name="JuiceStand" type="Panel" parent="ScrollContainer/GridContainer" unique_id=1117424510]
-custom_minimum_size = Vector2(350, 150)
+custom_minimum_size = Vector2(350, 175)
 layout_mode = 2
 size_flags_vertical = 0
 script = ExtResource("4_tbgi4")
@@ -117,33 +137,36 @@ unlocked = false
 base_upgrade_cost = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=1992328685]
-visible = false
-position = Vector2(176.40001, 74.8)
-scale = Vector2(2.1499999, 0.95)
+position = Vector2(174.00002, 86.016)
+scale = Vector2(2.2000008, 1.0902)
 texture = ExtResource("5_tbgi4")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=2009811792]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 110.0
 offset_top = 20.0
-offset_right = 151.0
+offset_right = 241.0
 offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 text = "Juice Stand"
+horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=987841513]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 60.0
+offset_top = 71.0
 offset_right = 78.0
-offset_bottom = 83.0
+offset_bottom = 94.0
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=1991468340]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 100.0
+offset_top = 111.0
 offset_right = 161.0
-offset_bottom = 123.0
+offset_bottom = 134.0
 text = "Upgrade Cost: $10"
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=317512676]
@@ -157,13 +180,13 @@ text = "Upgrade"
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=482859520]
 layout_mode = 0
 offset_left = 108.399994
-offset_top = 78.8
+offset_top = 86.8
 offset_right = 240.4
-offset_bottom = 109.8
+offset_bottom = 117.8
 text = "Unlock For $100"
 
 [node name="SmoothieBar" type="Panel" parent="ScrollContainer/GridContainer" unique_id=1119104065]
-custom_minimum_size = Vector2(350, 150)
+custom_minimum_size = Vector2(350, 175)
 layout_mode = 2
 size_flags_vertical = 0
 script = ExtResource("4_tbgi4")
@@ -174,33 +197,36 @@ unlocked = false
 base_upgrade_cost = 200
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=680569396]
-visible = false
-position = Vector2(176.40001, 74.8)
-scale = Vector2(2.1499999, 0.95)
-texture = ExtResource("5_tbgi4")
+position = Vector2(172, 86.016)
+scale = Vector2(2.2, 1.0902)
+texture = ExtResource("5_tipki")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=1975503878]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 110.0
 offset_top = 20.0
-offset_right = 151.0
+offset_right = 241.0
 offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 text = "Smoothie Bar"
+horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=1257133030]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 60.0
+offset_top = 71.0
 offset_right = 78.0
-offset_bottom = 83.0
+offset_bottom = 94.0
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=379438170]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 100.0
+offset_top = 111.0
 offset_right = 161.0
-offset_bottom = 123.0
+offset_bottom = 134.0
 text = "Upgrade Cost: $10"
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=586929753]
@@ -213,14 +239,14 @@ text = "Upgrade"
 
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=1707590125]
 layout_mode = 0
-offset_left = 108.399994
-offset_top = 78.8
-offset_right = 240.4
-offset_bottom = 109.8
+offset_left = 108.400024
+offset_top = 86.8
+offset_right = 240.40002
+offset_bottom = 117.8
 text = "Unlock For $100"
 
 [node name="CoffeeShop" type="Panel" parent="ScrollContainer/GridContainer" unique_id=109675386]
-custom_minimum_size = Vector2(350, 150)
+custom_minimum_size = Vector2(350, 175)
 layout_mode = 2
 size_flags_vertical = 0
 script = ExtResource("4_tbgi4")
@@ -231,33 +257,36 @@ unlocked = false
 base_upgrade_cost = 800
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=99415149]
-visible = false
-position = Vector2(176.40001, 74.8)
-scale = Vector2(2.1499999, 0.95)
-texture = ExtResource("5_tbgi4")
+position = Vector2(176.00003, 86.516014)
+scale = Vector2(1.5714288, 1.0964501)
+texture = ExtResource("6_85g3d")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=1519791514]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 110.0
 offset_top = 20.0
-offset_right = 151.0
+offset_right = 241.0
 offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 text = "Coffee Shop"
+horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=137227620]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 60.0
+offset_top = 71.0
 offset_right = 78.0
-offset_bottom = 83.0
+offset_bottom = 94.0
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=1979405635]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 100.0
+offset_top = 111.0
 offset_right = 161.0
-offset_bottom = 123.0
+offset_bottom = 134.0
 text = "Upgrade Cost: $10"
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=582030260]
@@ -271,13 +300,13 @@ text = "Upgrade"
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=1294028632]
 layout_mode = 0
 offset_left = 108.399994
-offset_top = 78.8
+offset_top = 86.8
 offset_right = 240.4
-offset_bottom = 109.8
+offset_bottom = 117.8
 text = "Unlock For $100"
 
 [node name="DessertCafe" type="Panel" parent="ScrollContainer/GridContainer" unique_id=622349033]
-custom_minimum_size = Vector2(350, 150)
+custom_minimum_size = Vector2(350, 175)
 layout_mode = 2
 size_flags_vertical = 0
 script = ExtResource("4_tbgi4")
@@ -288,33 +317,36 @@ unlocked = false
 base_upgrade_cost = 3000
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=31723654]
-visible = false
-position = Vector2(176.40001, 74.8)
-scale = Vector2(2.1499999, 0.95)
-texture = ExtResource("5_tbgi4")
+position = Vector2(173.99998, 86.516014)
+scale = Vector2(1.5714288, 1.0964501)
+texture = ExtResource("7_choun")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=2031150897]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 110.0
 offset_top = 20.0
-offset_right = 151.0
+offset_right = 241.0
 offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 text = "Dessert Cafe"
+horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=1526760648]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 60.0
+offset_top = 71.0
 offset_right = 78.0
-offset_bottom = 83.0
+offset_bottom = 94.0
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=1248902817]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 100.0
+offset_top = 111.0
 offset_right = 161.0
-offset_bottom = 123.0
+offset_bottom = 134.0
 text = "Upgrade Cost: $10"
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=663973995]
@@ -328,13 +360,13 @@ text = "Upgrade"
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=229988421]
 layout_mode = 0
 offset_left = 108.399994
-offset_top = 78.8
+offset_top = 86.8
 offset_right = 240.4
-offset_bottom = 109.8
+offset_bottom = 117.8
 text = "Unlock For $100"
 
 [node name="SnackDo" type="Panel" parent="ScrollContainer/GridContainer" unique_id=1966154592]
-custom_minimum_size = Vector2(350, 150)
+custom_minimum_size = Vector2(350, 175)
 layout_mode = 2
 size_flags_vertical = 0
 script = ExtResource("4_tbgi4")
@@ -345,33 +377,36 @@ unlocked = false
 base_upgrade_cost = 12000
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/SnackDo" unique_id=68861480]
-visible = false
-position = Vector2(176.40001, 74.8)
-scale = Vector2(2.1499999, 0.95)
-texture = ExtResource("5_tbgi4")
+position = Vector2(171.99998, 86.516014)
+scale = Vector2(1.5714288, 1.0964501)
+texture = ExtResource("8_ya4ey")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/SnackDo" unique_id=1733605626]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 110.0
 offset_top = 20.0
-offset_right = 151.0
+offset_right = 241.0
 offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
 text = "SnackDo"
+horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/SnackDo" unique_id=360765325]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 60.0
+offset_top = 71.0
 offset_right = 78.0
-offset_bottom = 83.0
+offset_bottom = 94.0
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/SnackDo" unique_id=475356708]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 100.0
+offset_top = 111.0
 offset_right = 161.0
-offset_bottom = 123.0
+offset_bottom = 134.0
 text = "Upgrade Cost: $10"
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/SnackDo" unique_id=105564332]
@@ -384,12 +419,16 @@ text = "Upgrade"
 
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/SnackDo" unique_id=1207763960]
 layout_mode = 0
-offset_left = 108.399994
-offset_top = 78.8
-offset_right = 240.4
-offset_bottom = 109.8
+offset_left = 108.400024
+offset_top = 86.8
+offset_right = 240.40002
+offset_bottom = 117.8
 text = "Unlock For $100"
 
+[node name="SettingsPopup" parent="." unique_id=760922124 instance=ExtResource("9_85g3d")]
+layout_mode = 1
+
+[connection signal="pressed" from="TopBar/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/LemonadeStand/UpgradeButton" to="ScrollContainer/GridContainer/LemonadeStand" method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/LemonadeStand/UnlockButton" to="ScrollContainer/GridContainer/LemonadeStand" method="_on_unlock_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/JuiceStand/UpgradeButton" to="ScrollContainer/GridContainer/JuiceStand" method="_on_upgrade_button_pressed"]

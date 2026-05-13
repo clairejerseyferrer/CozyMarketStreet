@@ -11,13 +11,23 @@ config_version=5
 [application]
 
 config/name="LemonadeStandIdle"
-run/main_scene="uid://ll63in2s4i4n"
+run/main_scene="uid://b304e42bhn13"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://rqv7ovjr0cfx"
 
 [autoload]
 
 SaveManager="*uid://cpq7m26lj3nud"
+AudioManager="*uid://dmvo556m8j0g0"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [physics]
 

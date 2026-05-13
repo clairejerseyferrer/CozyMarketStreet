@@ -9,6 +9,7 @@ var income_per_second = 0
 @onready var stands = $ScrollContainer/GridContainer.get_children()
 
 @onready var popup_scene = preload("res://scenes/popup_text.tscn")
+@onready var settings_popup = $SettingsPopup
 
 func spawn_popup(text, pos, color):
 	var popup = popup_scene.instantiate()
@@ -64,6 +65,9 @@ func format_money(value):
 func update_ui():
 	money_label.text = "Money: $" + format_money(money)
 	income_label.text = "Income/sec: $" + format_money(income_per_second)
+
+func _on_settings_button_pressed():
+	settings_popup.visible = true
 
 func save_game():
 	var stand_data = {}
