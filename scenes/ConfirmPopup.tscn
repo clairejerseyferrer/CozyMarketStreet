@@ -1,25 +1,91 @@
 [gd_scene format=3 uid="uid://b8y5pu7qcvsf4"]
 
 [ext_resource type="Script" uid="uid://c3iooij016q34" path="res://scripts/confirm_popup.gd" id="1_qbnao"]
+[ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="2_j3qb8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3qb8"]
-bg_color = Color(0.5418546, 0.67563576, 0.80695236, 1)
+bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbnao"]
-bg_color = Color(2.5990605e-06, 0.70328623, 0.55023974, 1)
+bg_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bbee"]
+bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5anya"]
+bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxmwm"]
 bg_color = Color(0.76045775, 0, 0.17865592, 1)
 border_width_left = 2
 border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4392157, 0, 0.05490196, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwy5n"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdgkl"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="ConfirmPopup" type="Panel" unique_id=117324092]
 visible = false
@@ -50,6 +116,8 @@ alignment = 1
 
 [node name="WarningLabel" type="Label" parent="VBoxContainer" unique_id=1674535413]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("2_j3qb8")
 theme_override_font_sizes/font_size = 25
 text = "Are you sure?
 This will delete all progress.
@@ -64,16 +132,27 @@ alignment = 1
 [node name="YesButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1360964023]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.10551234, 0.19889268, 0.11380499, 1)
+theme_override_fonts/font = ExtResource("2_j3qb8")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_qbnao")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8bbee")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5anya")
 text = "Yes"
 
 [node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=398718707]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.76392704, 0, 0.12861472, 1)
+theme_override_fonts/font = ExtResource("2_j3qb8")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_lxmwm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kwy5n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xdgkl")
 text = "Cancel"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]

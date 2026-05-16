@@ -66,9 +66,17 @@ func _on_upgrade_button_pressed():
 		main.money -= cost
 		main.spawn_popup(
 			"-" + main.format_money(cost), 
-			global_position  + Vector2(100, 100), 
+			global_position  + Vector2(300, 0), 
 			Color.RED)
 		level += 1
+		if level >= max_level:
+			var popup = get_tree().current_scene.get_node("UILayer/MilestonePopup")
+
+			popup.show_milestone(
+				"\nCongratulations!",
+				"[center][color=#2D4F30][b]" + stand_name + "[/b][/color]\nhas reached\n[color=yellow]MAX LEVEL![/color][/center]"
+			)
+	
 		AudioManager.play_sfx(AudioManager.upgrade_sound)
 		main.update_total_income()
 		main.save_game()
@@ -85,10 +93,17 @@ func _on_unlock_button_pressed():
 		main.money -= unlock_cost
 		main.spawn_popup(
 			"-" + main.format_money(unlock_cost),
-			unlock_button.global_position + Vector2(40, 0),
+			unlock_button.global_position + Vector2(200, 0),
 			Color.RED
 		)
 		unlocked = true
+		var popup = get_tree().current_scene.get_node("UILayer/MilestonePopup")
+
+		popup.show_milestone(
+			"\n\nNew Stand Unlocked!",
+			"[center][color=#2D4F30][b]" + stand_name + "[/b][/color]\nis now open![/center]"
+		)
+		
 		AudioManager.play_sfx(AudioManager.unlock_sound)
 		update_visibility()
 		main.update_total_income()

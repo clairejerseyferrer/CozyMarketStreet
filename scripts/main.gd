@@ -2,6 +2,7 @@ extends Control
 
 var money = 0
 var income_per_second = 0
+var game_completed = false
 
 @onready var money_label = get_node_or_null("TopBar/MoneyLabel")
 @onready var income_label = get_node_or_null("TopBar/IncomeLabel")
@@ -9,13 +10,13 @@ var income_per_second = 0
 @onready var stands = $ScrollContainer/GridContainer.get_children()
 
 @onready var popup_scene = preload("res://scenes/popup_text.tscn")
-@onready var settings_popup = $SettingsPopup
+@onready var settings_popup = $UILayer/SettingsPopup
 
 func spawn_popup(text, pos, color):
 	var popup = popup_scene.instantiate()
-	add_child(popup)
+	$PopupLayer.add_child(popup)
 
-	popup.global_position = pos
+	popup.position = pos
 	popup.start(text, color)
 
 func _ready():
@@ -35,7 +36,7 @@ func start_income_loop():
 					money += income
 					spawn_popup(
 						"+" + format_money(income),
-						stand.global_position + Vector2(100, 40),
+						stand.global_position + Vector2(200, 0),
 						Color.GREEN
 					)
 
@@ -44,6 +45,10 @@ func start_income_loop():
 			if stand.has_method("update_ui"):
 				stand.update_ui()
 		save_game()
+		
+		if check_game_completion():
+			game_completed = true
+			$UILayer/CompletionScreen.show_completion()
 
 func update_total_income():
 	income_per_second = 0
@@ -68,6 +73,13 @@ func update_ui():
 
 func _on_settings_button_pressed():
 	settings_popup.visible = true
+
+func check_game_completion():
+	for stand in $ScrollContainer/GridContainer.get_children():
+		if stand.has_method("get_income"):
+			if stand.level < stand.max_level:
+				return false
+	return true
 
 func save_game():
 	var stand_data = {}

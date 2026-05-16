@@ -2,6 +2,95 @@
 
 [ext_resource type="Script" uid="uid://dkij7rmihvrmq" path="res://scripts/title_screen.gd" id="1_qyuap"]
 [ext_resource type="PackedScene" uid="uid://6qlivtdh70o8" path="res://scenes/settings_popup.tscn" id="2_ch40n"]
+[ext_resource type="FontFile" uid="uid://dph7ik7faihpt" path="res://fonts/Super Bubble.ttf" id="3_8k5og"]
+[ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="3_dfj8j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5og"]
+bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85feu"]
+bg_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w20ru"]
+bg_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4l16e"]
+bg_color = Color(0.7607843, 0, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.44032615, 0, 0.056058973, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66w26"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch40n"]
+bg_color = Color(0.51088, 0.6542702, 0.36131462, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfj8j"]
+bg_color = Color(0.17451173, 0.30877715, 0.18808582, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ej01"]
+bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+border_width_left = 5
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 2
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="TitleScreen" type="Control" unique_id=89890169]
 layout_mode = 3
@@ -37,8 +126,9 @@ alignment = 1
 [node name="TitleLabel" type="Label" parent="CenterContainer/MainMenuContainer" unique_id=1989509444]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8k5og")
 theme_override_font_sizes/font_size = 60
-text = "Lemonade Stand Idle "
+text = "Cozy Market Street"
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="CenterContainer/MainMenuContainer" unique_id=1951140287]
 custom_minimum_size = Vector2(10, 100)
@@ -49,22 +139,54 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+theme_override_fonts/font = ExtResource("3_dfj8j")
 theme_override_font_sizes/font_size = 30
-text = "Play"
+theme_override_styles/normal = SubResource("StyleBoxFlat_8k5og")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_85feu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
+text = "PLAY"
 
 [node name="SettingsButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=2528865]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+theme_override_fonts/font = ExtResource("3_dfj8j")
 theme_override_font_sizes/font_size = 30
-text = "Settings"
+theme_override_styles/normal = SubResource("StyleBoxFlat_8k5og")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_85feu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
+text = "SETTINGS"
+
+[node name="CreditsButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=505278473]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+theme_override_fonts/font = ExtResource("3_dfj8j")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8k5og")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_85feu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
+text = "CREDITS"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=273229299]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_dfj8j")
 theme_override_font_sizes/font_size = 30
-text = "Quit"
+theme_override_styles/normal = SubResource("StyleBoxFlat_4l16e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_66w26")
+text = "QUIT"
 
 [node name="SettingsPopup" parent="." unique_id=760922124 instance=ExtResource("2_ch40n")]
 layout_mode = 1
@@ -73,6 +195,103 @@ offset_top = -150.0
 offset_right = 200.0
 offset_bottom = 150.0
 
+[node name="CreditsPopup" type="Panel" parent="." unique_id=654760144]
+visible = false
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ch40n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPopup" unique_id=1403587104]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="CreditsPopup/VBoxContainer" unique_id=53887175]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("3_8k5og")
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="CreditsText" type="RichTextLabel" parent="CreditsPopup/VBoxContainer" unique_id=1526589138]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_dfj8j")
+theme_override_fonts/bold_font = ExtResource("3_8k5og")
+theme_override_fonts/italics_font = ExtResource("3_dfj8j")
+bbcode_enabled = true
+text = "[center][b]Developed By[/b][/center]
+
+[color=#2D4F30][b]Claire Jersey Ferrer[/b][/color]
+[i]Lead Developer / Game Director[/i]
+
+[color=#2D4F30][b]Mary Celynia Garcia[/b][/color]
+[i]Project Coordinator & Documentation[/i]
+
+[color=#2D4F30][b]Cristan Generillo[/b][/color]
+[i]Concept Creator / Asset Assistant[/i]
+
+[color=#2D4F30][b]Devieth Jushua Anto[/b][/color]
+[i]Sprite Contributor / Visual Support[/i]
+
+[color=#2D4F30][b]Emmanuel Sumalo[/b][/color]
+[i]Audio & QA Tester[/i]
+
+
+
+[center][b]Assets / Art[/b][/center]
+
+Basic Market Stalls by theBESTER
+
+
+
+[center][b]Audio / Music[/b][/center]
+
+Pastel Dreaming by zøne
+
+collect_coin_3 by Gravity Sound
+
+collect_coin_7 by Gravity Sound
+
+
+
+[center][b]Fonts[/b][/center]
+
+Bubblegun by Simon Thomaschke
+
+Super Bubble by fsuarez913
+
+"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="CreditsPopup/VBoxContainer" unique_id=1695853173]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dfj8j")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3ej01")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ej01")
+text = "Close"
+
 [connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsPopup/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

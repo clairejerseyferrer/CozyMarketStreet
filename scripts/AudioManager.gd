@@ -16,6 +16,8 @@ func _ready():
 	bgm_player.stream = bgm_music
 	bgm_player.autoplay = false
 	add_child(bgm_player)
+	
+	bgm_player.finished.connect(_on_music_finished)
 
 	play_music()
 

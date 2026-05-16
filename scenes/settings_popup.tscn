@@ -2,8 +2,91 @@
 
 [ext_resource type="Script" uid="uid://cjgmcl7pahbfw" path="res://scripts/settings_popup.gd" id="1_s3l5t"]
 [ext_resource type="PackedScene" uid="uid://b8y5pu7qcvsf4" path="res://scenes/ConfirmPopup.tscn" id="2_fdmib"]
+[ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="2_wv7nd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3l5t"]
+bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bd2y"]
+bg_color = Color(0.7607843, 0, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4392157, 0, 0.05490196, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w425h"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kxbx"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m133j"]
+bg_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv7nd"]
+bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4ftr"]
+bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="SettingsPopup" type="Panel" unique_id=760922124]
 visible = false
@@ -24,10 +107,15 @@ script = ExtResource("1_s3l5t")
 
 [node name="MenuContainer" type="VBoxContainer" parent="." unique_id=2099728929]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.117
-anchor_right = 0.884
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -112.5
+offset_right = 158.0
+offset_bottom = 112.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
@@ -36,26 +124,63 @@ alignment = 1
 [node name="MusicToggle" type="CheckButton" parent="MenuContainer" unique_id=214017309]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("2_wv7nd")
+theme_override_font_sizes/font_size = 20
 text = "Background Music"
 
 [node name="SfxToggle" type="CheckButton" parent="MenuContainer" unique_id=1584096771]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("2_wv7nd")
+theme_override_font_sizes/font_size = 20
 text = "Sound Effects"
 
-[node name="ResetButton" type="Button" parent="MenuContainer" unique_id=881738755]
-custom_minimum_size = Vector2(0, 45)
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer" unique_id=1517650511]
 layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ResetButton" type="Button" parent="MenuContainer/HBoxContainer" unique_id=881738755]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.76392704, 0, 0.12861472, 1)
+theme_override_fonts/font = ExtResource("2_wv7nd")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_2bd2y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w425h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8kxbx")
 text = "Reset Progress"
 
-[node name="MainMenuButton" type="Button" parent="MenuContainer" unique_id=469693696]
-custom_minimum_size = Vector2(0, 45)
+[node name="MainMenuButton" type="Button" parent="MenuContainer/HBoxContainer" unique_id=469693696]
+custom_minimum_size = Vector2(150, 45)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.10551234, 0.19889268, 0.11380499, 1)
+theme_override_fonts/font = ExtResource("2_wv7nd")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_m133j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wv7nd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d4ftr")
 text = "Main Menu"
 
 [node name="CloseButton" type="Button" parent="MenuContainer" unique_id=1202100457]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(150, 45)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.10551234, 0.19889268, 0.11380499, 1)
+theme_override_fonts/font = ExtResource("2_wv7nd")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_m133j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wv7nd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d4ftr")
 text = "Close"
 
 [node name="ConfirmPopup" parent="." unique_id=117324092 instance=ExtResource("2_fdmib")]
@@ -67,6 +192,6 @@ offset_bottom = 100.0
 
 [connection signal="toggled" from="MenuContainer/MusicToggle" to="." method="_on_music_toggle_toggled"]
 [connection signal="toggled" from="MenuContainer/SfxToggle" to="." method="_on_sfx_toggle_toggled"]
-[connection signal="pressed" from="MenuContainer/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="MenuContainer/CloseButton" to="." method="_on_close_button_pressed"]
