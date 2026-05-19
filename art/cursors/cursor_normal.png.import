@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gddv5vt7lr2u"
-path="res://.godot/imported/yellow_stall_long.png-7449f3e2791aaecf117cd194dc74b7b8.ctex"
+uid="uid://cj4kqhrofdlm0"
+path="res://.godot/imported/cursor_normal.png-aa4bdac228543e4d0b9a2470490eb913.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/yellow_stall_long.png"
-dest_files=["res://.godot/imported/yellow_stall_long.png-7449f3e2791aaecf117cd194dc74b7b8.ctex"]
+source_file="res://art/cursors/cursor_normal.png"
+dest_files=["res://.godot/imported/cursor_normal.png-aa4bdac228543e4d0b9a2470490eb913.ctex"]
 
 [params]
 

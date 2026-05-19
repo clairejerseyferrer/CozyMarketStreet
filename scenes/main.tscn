@@ -1,19 +1,25 @@
 [gd_scene format=3 uid="uid://ll63in2s4i4n"]
 
 [ext_resource type="Script" uid="uid://3lq05hn7sbrb" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://vqfs8qhanu14" path="res://art/yellow_stall_short.png" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://wpr0n1mio2ty" path="res://art/background/main_bg.png" id="2_jbj1t"]
+[ext_resource type="Script" uid="uid://dbmralvhsfff6" path="res://scripts/cursor_button.gd" id="3_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://vqfs8qhanu14" path="res://art/stands/yellow_stall_short.png" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bij58bbornsja" path="res://scripts/stand.gd" id="4_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://c8nyj4e3qtk2u" path="res://art/red_stall_short.png" id="5_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://caokmda11fhif" path="res://art/blue_stall_short.png" id="5_tipki"]
-[ext_resource type="Texture2D" uid="uid://1qc6ypcci1ej" path="res://art/blue_stall_long.png" id="6_85g3d"]
-[ext_resource type="Texture2D" uid="uid://gddv5vt7lr2u" path="res://art/yellow_stall_long.png" id="7_choun"]
-[ext_resource type="Texture2D" uid="uid://cp0286wyucl7h" path="res://art/red_stall_long.png" id="8_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://c8nyj4e3qtk2u" path="res://art/stands/red_stall_short.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://caokmda11fhif" path="res://art/stands/blue_stall_short.png" id="5_tipki"]
+[ext_resource type="Texture2D" uid="uid://1qc6ypcci1ej" path="res://art/stands/blue_stall_long.png" id="6_85g3d"]
+[ext_resource type="Texture2D" uid="uid://d241s4p5xtioq" path="res://art/NPC/stall-staffs.png" id="6_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://gddv5vt7lr2u" path="res://art/stands/yellow_stall_long.png" id="7_choun"]
+[ext_resource type="Texture2D" uid="uid://cp0286wyucl7h" path="res://art/stands/red_stall_long.png" id="8_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://6qlivtdh70o8" path="res://scenes/settings_popup.tscn" id="9_85g3d"]
 [ext_resource type="Script" uid="uid://8s8ek3pd3dgc" path="res://scripts/milestone_popup.gd" id="10_choun"]
 [ext_resource type="FontFile" uid="uid://dph7ik7faihpt" path="res://fonts/Super Bubble.ttf" id="11_ya4ey"]
 [ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="12_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://dym2m4ck4obc5" path="res://art/completion_bg.png" id="13_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://dym2m4ck4obc5" path="res://art/background/completion_bg.png" id="13_a8y0u"]
 [ext_resource type="Script" uid="uid://cmfxb4t3em1mh" path="res://scripts/completion_screen.gd" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://d2rocs5frm4kk" path="res://scenes/npc_1.tscn" id="17_muem4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbj1t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqmmt"]
 bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
@@ -175,6 +181,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o5qli")
 
+[node name="ParkBackground" type="TextureRect" parent="." unique_id=537954923]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_jbj1t")
+
 [node name="TopBar" type="HBoxContainer" parent="." unique_id=138931603]
 layout_mode = 1
 anchors_preset = -1
@@ -188,13 +200,13 @@ theme_override_constants/separation = 50
 [node name="MoneyLabel" type="Label" parent="TopBar" unique_id=23423513]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("11_ya4ey")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "$0"
 
 [node name="IncomeLabel" type="Label" parent="TopBar" unique_id=440592339]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("11_ya4ey")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "Income/sec: 1"
 
 [node name="Spacer" type="Control" parent="TopBar" unique_id=1061634841]
@@ -203,15 +215,16 @@ size_flags_horizontal = 3
 
 [node name="SettingsButton" type="Button" parent="TopBar" unique_id=1891227985]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 45
 text = "⚙"
 flat = true
+script = ExtResource("3_jkv2x")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=367040398]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.033
-anchor_top = 0.216
+anchor_left = 0.083
+anchor_top = 0.249
 anchor_right = 0.967
 anchor_bottom = 0.917
 offset_left = -14.015999
@@ -223,19 +236,27 @@ grow_vertical = 2
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1650008403]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/h_separation = 26
-theme_override_constants/v_separation = 80
+theme_override_constants/h_separation = 95
+theme_override_constants/v_separation = 120
 columns = 3
 
 [node name="LemonadeStand" type="Panel" parent="ScrollContainer/GridContainer" unique_id=1126218826]
-custom_minimum_size = Vector2(350, 175)
+custom_minimum_size = Vector2(267, 134)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jbj1t")
 script = ExtResource("4_tbgi4")
 stand_name = "Lemonade Stand"
 
+[node name="StaffSprite" type="Sprite2D" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=1484993102]
+position = Vector2(118.4, 87.84801)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_dp3eg")
+region_enabled = true
+region_rect = Rect2(0, 100, 100, 100)
+
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=650253652]
-position = Vector2(174.39996, 85.232)
-scale = Vector2(2.1999996, 1.1000001)
+position = Vector2(134.4, 67.84799)
+scale = Vector2(1.6999999, 0.8500001)
 texture = ExtResource("3_jyhfs")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=741817555]
@@ -244,25 +265,26 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -83.0
-offset_top = 27.0
+offset_top = 23.0
 offset_right = 83.0
-offset_bottom = 50.0
+offset_bottom = 46.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("11_ya4ey")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "Lemonade Stand"
 horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=303045649]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 71.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 64.0
+offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 15
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=2030704801]
@@ -273,31 +295,34 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -70.5
-offset_top = -31.0
+offset_top = -22.0
 offset_right = 70.5
-offset_bottom = -8.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 13
 text = "Upgrade Cost: $10"
 horizontal_alignment = 1
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=669329994]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 80.0
-offset_right = 328.0
-offset_bottom = 130.0
+offset_left = 158.4
+offset_top = 63.848007
+offset_right = 258.4
+offset_bottom = 103.84801
 theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_colors/font_disabled_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_gqmmt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Upgrade"
+script = ExtResource("3_jkv2x")
 
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/LemonadeStand" unique_id=250768961]
 visible = false
@@ -307,11 +332,13 @@ offset_top = 130.0
 offset_right = 232.0
 offset_bottom = 161.0
 text = "Unlock For $100"
+script = ExtResource("3_jkv2x")
 
 [node name="JuiceStand" type="Panel" parent="ScrollContainer/GridContainer" unique_id=1117424510]
-custom_minimum_size = Vector2(350, 175)
+custom_minimum_size = Vector2(267, 134)
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jbj1t")
 script = ExtResource("4_tbgi4")
 stand_name = "Juice Stand"
 base_income = 5
@@ -319,9 +346,16 @@ unlock_cost = 100
 unlocked = false
 base_upgrade_cost = 50
 
+[node name="StaffSprite" type="Sprite2D" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=916834989]
+position = Vector2(124.399994, 87.84801)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_dp3eg")
+region_enabled = true
+region_rect = Rect2(100, 100, 100, 100)
+
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=1992328685]
-position = Vector2(174.00002, 86.016)
-scale = Vector2(2.2000008, 1.0902)
+position = Vector2(132.39993, 68.240005)
+scale = Vector2(1.7000004, 0.84509987)
 texture = ExtResource("5_tbgi4")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=2009811792]
@@ -330,25 +364,26 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -65.5
-offset_top = 27.0
+offset_top = 23.0
 offset_right = 65.5
-offset_bottom = 50.0
+offset_bottom = 46.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("11_ya4ey")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "Juice Stand"
 horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=987841513]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 71.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 64.0
+offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 15
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=1991468340]
@@ -359,34 +394,37 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -70.5
-offset_top = -31.0
+offset_top = -22.0
 offset_right = 70.5
-offset_bottom = -8.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 13
 text = "Upgrade Cost: $10"
 horizontal_alignment = 1
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=317512676]
 layout_mode = 0
-offset_left = 207.0
-offset_top = 80.0
-offset_right = 327.0
-offset_bottom = 130.0
+offset_left = 156.4
+offset_top = 63.848007
+offset_right = 256.4
+offset_bottom = 103.84801
 theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_colors/font_disabled_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Upgrade"
+script = ExtResource("3_jkv2x")
 
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/JuiceStand" unique_id=482859520]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -403,26 +441,36 @@ theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Unlock For $100"
+script = ExtResource("3_jkv2x")
 
 [node name="SmoothieBar" type="Panel" parent="ScrollContainer/GridContainer" unique_id=1119104065]
-custom_minimum_size = Vector2(350, 175)
+custom_minimum_size = Vector2(267, 134)
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jbj1t")
 script = ExtResource("4_tbgi4")
 stand_name = "Smoothie Bar"
-base_income = 20
+base_income = 25
 unlock_cost = 500
 unlocked = false
 base_upgrade_cost = 200
 
+[node name="StaffSprite" type="Sprite2D" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=110326130]
+position = Vector2(124.400024, 87.84801)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_dp3eg")
+region_enabled = true
+region_rect = Rect2(200, 100, 100, 100)
+
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=680569396]
-position = Vector2(172, 86.016)
-scale = Vector2(2.2, 1.0902)
+position = Vector2(131.2, 67.324005)
+scale = Vector2(1.69, 0.8565501)
 texture = ExtResource("5_tipki")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=1975503878]
@@ -431,25 +479,26 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -70.5
-offset_top = 27.0
+offset_top = 23.0
 offset_right = 70.5
-offset_bottom = 50.0
+offset_bottom = 46.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("11_ya4ey")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "Smoothie Bar"
 horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=1257133030]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 71.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 64.0
+offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 15
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=379438170]
@@ -460,34 +509,37 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -70.5
-offset_top = -31.0
+offset_top = -22.0
 offset_right = 70.5
-offset_bottom = -8.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 13
 text = "Upgrade Cost: $10"
 horizontal_alignment = 1
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=586929753]
 layout_mode = 0
-offset_left = 207.0
-offset_top = 80.0
-offset_right = 327.0
-offset_bottom = 130.0
+offset_left = 154.4
+offset_top = 63.848007
+offset_right = 254.4
+offset_bottom = 103.84801
 theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_colors/font_disabled_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Upgrade"
+script = ExtResource("3_jkv2x")
 
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/SmoothieBar" unique_id=1707590125]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -504,26 +556,36 @@ theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Unlock For $100"
+script = ExtResource("3_jkv2x")
 
 [node name="CoffeeShop" type="Panel" parent="ScrollContainer/GridContainer" unique_id=109675386]
-custom_minimum_size = Vector2(350, 175)
+custom_minimum_size = Vector2(267, 134)
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jbj1t")
 script = ExtResource("4_tbgi4")
 stand_name = "Coffee Shop"
-base_income = 75
+base_income = 100
 unlock_cost = 2000
 unlocked = false
 base_upgrade_cost = 800
 
+[node name="StaffSprite" type="Sprite2D" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=1679954632]
+position = Vector2(124.4, 87.84802)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_dp3eg")
+region_enabled = true
+region_rect = Rect2(300, 0, 100, 100)
+
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=99415149]
-position = Vector2(176.00003, 86.516014)
-scale = Vector2(1.5714288, 1.0964501)
+position = Vector2(135.2, 67.32403)
+scale = Vector2(1.2071428, 0.88155013)
 texture = ExtResource("6_85g3d")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=1519791514]
@@ -532,25 +594,26 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -65.5
-offset_top = 27.0
+offset_top = 23.0
 offset_right = 65.5
-offset_bottom = 50.0
+offset_bottom = 46.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("11_ya4ey")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "Coffee Shop"
 horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=137227620]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 71.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 64.0
+offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 15
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=1979405635]
@@ -561,34 +624,37 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -70.5
-offset_top = -31.0
+offset_top = -21.0
 offset_right = 70.5
-offset_bottom = -8.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 13
 text = "Upgrade Cost: $10"
 horizontal_alignment = 1
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=582030260]
 layout_mode = 0
-offset_left = 214.0
-offset_top = 80.0
-offset_right = 334.0
-offset_bottom = 130.0
+offset_left = 158.4
+offset_top = 63.848007
+offset_right = 258.4
+offset_bottom = 103.84801
 theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_colors/font_disabled_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Upgrade"
+script = ExtResource("3_jkv2x")
 
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/CoffeeShop" unique_id=1294028632]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -605,26 +671,36 @@ theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Unlock For $100"
+script = ExtResource("3_jkv2x")
 
 [node name="DessertCafe" type="Panel" parent="ScrollContainer/GridContainer" unique_id=622349033]
-custom_minimum_size = Vector2(350, 175)
+custom_minimum_size = Vector2(267, 134)
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jbj1t")
 script = ExtResource("4_tbgi4")
 stand_name = "Dessert Cafe"
-base_income = 300
+base_income = 500
 unlock_cost = 10000
 unlocked = false
 base_upgrade_cost = 3000
 
+[node name="StaffSprite" type="Sprite2D" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=1753946785]
+position = Vector2(124.399994, 87.84802)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_dp3eg")
+region_enabled = true
+region_rect = Rect2(400, 0, 100, 100)
+
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=31723654]
-position = Vector2(173.99998, 86.516014)
-scale = Vector2(1.5714288, 1.0964501)
+position = Vector2(133.19998, 67.32403)
+scale = Vector2(1.207143, 0.88155013)
 texture = ExtResource("7_choun")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=2031150897]
@@ -633,25 +709,26 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -67.0
-offset_top = 27.0
+offset_top = 23.0
 offset_right = 67.0
-offset_bottom = 50.0
+offset_bottom = 46.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("11_ya4ey")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "Dessert Cafe"
 horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=1526760648]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 71.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 64.0
+offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 15
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=1248902817]
@@ -662,34 +739,37 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -70.5
-offset_top = -31.0
+offset_top = -21.0
 offset_right = 70.5
-offset_bottom = -8.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 13
 text = "Upgrade Cost: $10"
 horizontal_alignment = 1
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=663973995]
 layout_mode = 0
-offset_left = 214.0
-offset_top = 80.0
-offset_right = 334.0
-offset_bottom = 130.0
+offset_left = 156.4
+offset_top = 63.848007
+offset_right = 256.4
+offset_bottom = 103.84801
 theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_colors/font_disabled_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Upgrade"
+script = ExtResource("3_jkv2x")
 
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/DessertCafe" unique_id=229988421]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -706,26 +786,36 @@ theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Unlock For $100"
+script = ExtResource("3_jkv2x")
 
 [node name="SnackDo" type="Panel" parent="ScrollContainer/GridContainer" unique_id=1966154592]
-custom_minimum_size = Vector2(350, 175)
+custom_minimum_size = Vector2(267, 134)
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jbj1t")
 script = ExtResource("4_tbgi4")
 stand_name = "SnackDo"
-base_income = 1200
+base_income = 2500
 unlock_cost = 50000
 unlocked = false
 base_upgrade_cost = 12000
 
+[node name="StaffSprite" type="Sprite2D" parent="ScrollContainer/GridContainer/SnackDo" unique_id=573413524]
+position = Vector2(130.40002, 87.84802)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_dp3eg")
+region_enabled = true
+region_rect = Rect2(0, 200, 100, 100)
+
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/SnackDo" unique_id=68861480]
-position = Vector2(171.99998, 86.516014)
-scale = Vector2(1.5714288, 1.0964501)
+position = Vector2(131.20001, 67.324005)
+scale = Vector2(1.2071432, 0.88154995)
 texture = ExtResource("8_ya4ey")
 
 [node name="StandName" type="Label" parent="ScrollContainer/GridContainer/SnackDo" unique_id=1733605626]
@@ -734,25 +824,26 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -65.5
-offset_top = 27.0
+offset_top = 23.0
 offset_right = 65.5
-offset_bottom = 50.0
+offset_bottom = 46.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("11_ya4ey")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "SnackDo"
 horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="ScrollContainer/GridContainer/SnackDo" unique_id=360765325]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 71.0
-offset_right = 78.0
-offset_bottom = 94.0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 64.0
+offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 15
 text = "Level: 1"
 
 [node name="UpgradeCostLabel" type="Label" parent="ScrollContainer/GridContainer/SnackDo" unique_id=475356708]
@@ -763,34 +854,37 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -70.5
-offset_top = -31.0
+offset_top = -21.0
 offset_right = 70.5
-offset_bottom = -8.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("12_eb6dy")
+theme_override_font_sizes/font_size = 13
 text = "Upgrade Cost: $10"
 horizontal_alignment = 1
 
 [node name="UpgradeButton" type="Button" parent="ScrollContainer/GridContainer/SnackDo" unique_id=105564332]
 layout_mode = 0
-offset_left = 214.0
-offset_top = 80.0
-offset_right = 334.0
-offset_bottom = 130.0
+offset_left = 154.4
+offset_top = 63.848007
+offset_right = 254.4
+offset_bottom = 103.84801
 theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_colors/font_disabled_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Upgrade"
+script = ExtResource("3_jkv2x")
 
 [node name="UnlockButton" type="Button" parent="ScrollContainer/GridContainer/SnackDo" unique_id=1207763960]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -807,11 +901,16 @@ theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.50980395, 0.654902, 0.36078432, 1)
 theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pm3ni")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yc10j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Unlock For $100"
+script = ExtResource("3_jkv2x")
+
+[node name="NPC1" parent="." unique_id=1989792400 instance=ExtResource("17_muem4")]
+position = Vector2(584, 328)
 
 [node name="PopupLayer" type="CanvasLayer" parent="." unique_id=559733431]
 
@@ -883,6 +982,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_eb6dy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_trceg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_trceg")
 text = "Close"
+script = ExtResource("3_jkv2x")
 
 [node name="CompletionScreen" type="TextureRect" parent="UILayer" unique_id=1321773266]
 visible = false
@@ -951,6 +1051,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_a8y0u")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jkv2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jbj1t")
 text = "Restart Game"
+script = ExtResource("3_jkv2x")
 
 [node name="TitleButton" type="Button" parent="UILayer/CompletionScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=25955515]
 custom_minimum_size = Vector2(200, 50)
@@ -965,6 +1066,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_muem4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dp3eg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jscy8")
 text = "Return to Title"
+script = ExtResource("3_jkv2x")
 
 [connection signal="pressed" from="TopBar/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/LemonadeStand/UpgradeButton" to="ScrollContainer/GridContainer/LemonadeStand" method="_on_upgrade_button_pressed"]

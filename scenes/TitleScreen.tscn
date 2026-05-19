@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://b304e42bhn13"]
 
 [ext_resource type="Script" uid="uid://dkij7rmihvrmq" path="res://scripts/title_screen.gd" id="1_qyuap"]
+[ext_resource type="Texture2D" uid="uid://cksje5y1t67mu" path="res://art/background/title_bg.png" id="2_85feu"]
 [ext_resource type="PackedScene" uid="uid://6qlivtdh70o8" path="res://scenes/settings_popup.tscn" id="2_ch40n"]
 [ext_resource type="FontFile" uid="uid://dph7ik7faihpt" path="res://fonts/Super Bubble.ttf" id="3_8k5og"]
 [ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="3_dfj8j"]
+[ext_resource type="Script" uid="uid://dbmralvhsfff6" path="res://scripts/cursor_button.gd" id="4_4l16e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5og"]
 bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
@@ -110,6 +112,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 0.6862745, 1)
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1217722724]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_85feu")
+
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1468705639]
 layout_mode = 1
 anchors_preset = 15
@@ -125,7 +133,9 @@ alignment = 1
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/MainMenuContainer" unique_id=1989509444]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.50980395, 0.654902, 0.36078432, 1)
+theme_override_constants/outline_size = 35
 theme_override_fonts/font = ExtResource("3_8k5og")
 theme_override_font_sizes/font_size = 60
 text = "Cozy Market Street"
@@ -148,6 +158,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_8k5og")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_85feu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
 text = "PLAY"
+script = ExtResource("4_4l16e")
 
 [node name="SettingsButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=2528865]
 custom_minimum_size = Vector2(250, 60)
@@ -162,6 +173,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_8k5og")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_85feu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
 text = "SETTINGS"
+script = ExtResource("4_4l16e")
 
 [node name="CreditsButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=505278473]
 custom_minimum_size = Vector2(250, 60)
@@ -176,6 +188,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_8k5og")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_85feu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
 text = "CREDITS"
+script = ExtResource("4_4l16e")
 
 [node name="QuitButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=273229299]
 custom_minimum_size = Vector2(250, 60)
@@ -187,6 +200,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4l16e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_66w26")
 theme_override_styles/hover = SubResource("StyleBoxFlat_66w26")
 text = "QUIT"
+script = ExtResource("4_4l16e")
 
 [node name="SettingsPopup" parent="." unique_id=760922124 instance=ExtResource("2_ch40n")]
 layout_mode = 1
@@ -259,6 +273,16 @@ text = "[center][b]Developed By[/b][/center]
 
 Basic Market Stalls by theBESTER
 
+Park Tileset by kznhayami [i](Claire Ferrer)[/i]
+
+Floor Tileset by kznhayami [i](Claire Ferrer)[/i]
+
+Stall Machines Tileset by kznhayami [i](Claire Ferrer)[/i]
+
+Character Spritesheet by kznhayami [i](Claire Ferrer)[/i]
+
+Staff Spritesheet by kznhayami [i](Claire Ferrer)[/i]
+
 
 
 [center][b]Audio / Music[/b][/center]
@@ -271,12 +295,13 @@ collect_coin_7 by Gravity Sound
 
 
 
-[center][b]Fonts[/b][/center]
+[center][b]UI Assets[/b][/center]
 
-Bubblegun by Simon Thomaschke
+Bubblegun Font by Simon Thomaschke
 
-Super Bubble by fsuarez913
+Super Bubble Font by fsuarez913
 
+Cursor Pixel Pack by Kenney
 "
 horizontal_alignment = 1
 
@@ -289,6 +314,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3ej01")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3ej01")
 text = "Close"
+script = ExtResource("4_4l16e")
 
 [connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

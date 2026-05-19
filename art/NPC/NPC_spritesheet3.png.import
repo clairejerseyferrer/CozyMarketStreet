@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8nyj4e3qtk2u"
-path="res://.godot/imported/red_stall_short.png-2bbf8cd774be7473c3de36808e5157bd.ctex"
+uid="uid://caen2jd3ykx2v"
+path="res://.godot/imported/NPC_spritesheet3.png-b96b82414432f07aadcef9cc9e4884bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/red_stall_short.png"
-dest_files=["res://.godot/imported/red_stall_short.png-2bbf8cd774be7473c3de36808e5157bd.ctex"]
+source_file="res://art/NPC/NPC_spritesheet3.png"
+dest_files=["res://.godot/imported/NPC_spritesheet3.png-b96b82414432f07aadcef9cc9e4884bf.ctex"]
 
 [params]
 

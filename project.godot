@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://rqv7ovjr0cfx"
 
 SaveManager="*uid://cpq7m26lj3nud"
 AudioManager="*uid://dmvo556m8j0g0"
+CursorManager="*uid://b16vkr31pncrh"
 
 [display]
 
@@ -35,4 +36,5 @@ window/stretch/aspect="expand"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

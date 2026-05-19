@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp0286wyucl7h"
-path="res://.godot/imported/red_stall_long.png-0dc9dd60a94acdb64d5f9d9159525abd.ctex"
+uid="uid://dym2m4ck4obc5"
+path="res://.godot/imported/completion_bg.png-55adc651ed497bcb617d0c42f83c9252.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/red_stall_long.png"
-dest_files=["res://.godot/imported/red_stall_long.png-0dc9dd60a94acdb64d5f9d9159525abd.ctex"]
+source_file="res://art/background/completion_bg.png"
+dest_files=["res://.godot/imported/completion_bg.png-55adc651ed497bcb617d0c42f83c9252.ctex"]
 
 [params]
 

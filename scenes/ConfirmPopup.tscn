@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3iooij016q34" path="res://scripts/confirm_popup.gd" id="1_qbnao"]
 [ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="2_j3qb8"]
+[ext_resource type="Script" uid="uid://dbmralvhsfff6" path="res://scripts/cursor_button.gd" id="3_lxmwm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3qb8"]
 bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
@@ -141,6 +142,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qbnao")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8bbee")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5anya")
 text = "Yes"
+script = ExtResource("3_lxmwm")
 
 [node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=398718707]
 custom_minimum_size = Vector2(125, 0)
@@ -154,6 +156,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lxmwm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kwy5n")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xdgkl")
 text = "Cancel"
+script = ExtResource("3_lxmwm")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

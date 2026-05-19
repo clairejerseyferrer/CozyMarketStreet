@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cjgmcl7pahbfw" path="res://scripts/settings_popup.gd" id="1_s3l5t"]
 [ext_resource type="PackedScene" uid="uid://b8y5pu7qcvsf4" path="res://scenes/ConfirmPopup.tscn" id="2_fdmib"]
 [ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="2_wv7nd"]
+[ext_resource type="Script" uid="uid://dbmralvhsfff6" path="res://scripts/cursor_button.gd" id="3_2bd2y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3l5t"]
 bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
@@ -128,6 +129,7 @@ theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_fonts/font = ExtResource("2_wv7nd")
 theme_override_font_sizes/font_size = 20
 text = "Background Music"
+script = ExtResource("3_2bd2y")
 
 [node name="SfxToggle" type="CheckButton" parent="MenuContainer" unique_id=1584096771]
 custom_minimum_size = Vector2(0, 45)
@@ -136,6 +138,7 @@ theme_override_colors/font_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
 theme_override_fonts/font = ExtResource("2_wv7nd")
 theme_override_font_sizes/font_size = 20
 text = "Sound Effects"
+script = ExtResource("3_2bd2y")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer" unique_id=1517650511]
 layout_mode = 2
@@ -154,6 +157,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2bd2y")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_w425h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8kxbx")
 text = "Reset Progress"
+script = ExtResource("3_2bd2y")
 
 [node name="MainMenuButton" type="Button" parent="MenuContainer/HBoxContainer" unique_id=469693696]
 custom_minimum_size = Vector2(150, 45)
@@ -168,6 +172,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_m133j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wv7nd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d4ftr")
 text = "Main Menu"
+script = ExtResource("3_2bd2y")
 
 [node name="CloseButton" type="Button" parent="MenuContainer" unique_id=1202100457]
 custom_minimum_size = Vector2(150, 45)
@@ -182,6 +187,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_m133j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wv7nd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d4ftr")
 text = "Close"
+script = ExtResource("3_2bd2y")
 
 [node name="ConfirmPopup" parent="." unique_id=117324092 instance=ExtResource("2_fdmib")]
 layout_mode = 1

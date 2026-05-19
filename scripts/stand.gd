@@ -13,6 +13,7 @@ var level = 1
 @onready var cost_label = $UpgradeCostLabel
 @onready var upgrade_button = $UpgradeButton
 @onready var unlock_button = $UnlockButton
+@onready var staff_sprite = $StaffSprite
 
 func get_upgrade_cost():
 	return int(base_upgrade_cost * pow(growth_rate, level - 1))
@@ -31,6 +32,8 @@ func update_visibility():
 	cost_label.visible = unlocked
 	upgrade_button.visible = unlocked
 	unlock_button.visible = !unlocked
+	
+	staff_sprite.visible = unlocked
 
 func update_ui():
 	level_label.text = "Level: " + str(int(level))
