@@ -91,16 +91,16 @@ corner_radius_bottom_left = 12
 
 [node name="SettingsPopup" type="Panel" unique_id=760922124]
 visible = false
-custom_minimum_size = Vector2(400, 300)
+custom_minimum_size = Vector2(400, 250)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -200.0
+offset_top = -116.95203
+offset_right = 200.0
+offset_bottom = 117.04797
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_s3l5t")
@@ -114,9 +114,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -158.0
-offset_top = -112.5
+offset_top = -80.0
 offset_right = 158.0
-offset_bottom = 112.5
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
@@ -174,21 +174,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_d4ftr")
 text = "Main Menu"
 script = ExtResource("3_2bd2y")
 
-[node name="CloseButton" type="Button" parent="MenuContainer" unique_id=1202100457]
-custom_minimum_size = Vector2(150, 45)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.50980395, 0.654902, 0.36078432, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.10551234, 0.19889268, 0.11380499, 1)
-theme_override_fonts/font = ExtResource("2_wv7nd")
-theme_override_font_sizes/font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxFlat_m133j")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wv7nd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d4ftr")
-text = "Close"
-script = ExtResource("3_2bd2y")
-
 [node name="ConfirmPopup" parent="." unique_id=117324092 instance=ExtResource("2_fdmib")]
 layout_mode = 1
 offset_left = -250.0
@@ -196,8 +181,28 @@ offset_top = -100.0
 offset_right = 250.0
 offset_bottom = 100.0
 
+[node name="CloseButton" type="Button" parent="." unique_id=1202100457]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 344.0
+offset_top = 10.0
+offset_right = 390.0
+offset_bottom = 55.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.76392704, 0, 0.12861472, 1)
+theme_override_fonts/font = ExtResource("2_wv7nd")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_2bd2y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w425h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8kxbx")
+text = "x"
+script = ExtResource("3_2bd2y")
+
 [connection signal="toggled" from="MenuContainer/MusicToggle" to="." method="_on_music_toggle_toggled"]
 [connection signal="toggled" from="MenuContainer/SfxToggle" to="." method="_on_sfx_toggle_toggled"]
 [connection signal="pressed" from="MenuContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="MenuContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="MenuContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

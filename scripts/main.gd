@@ -29,21 +29,29 @@ func _ready():
 func start_income_loop():
 	while true:
 		await get_tree().create_timer(1.0).timeout
+		
+		var earned_money = false
+		
 		for stand in $ScrollContainer/GridContainer.get_children():
 			if stand.has_method("get_income"):
 				var income = stand.get_income()
 				if income > 0:
 					money += income
+					earned_money = true
 					spawn_popup(
 						"+" + format_money(income),
 						stand.global_position + Vector2(200, 0),
 						Color.GREEN
 					)
-
+		if earned_money:
+			AudioManager.play_sfx(AudioManager.earn_sound)
+		
 		update_ui()
+		
 		for stand in $ScrollContainer/GridContainer.get_children():
 			if stand.has_method("update_ui"):
 				stand.update_ui()
+		
 		save_game()
 		
 		if check_game_completion():

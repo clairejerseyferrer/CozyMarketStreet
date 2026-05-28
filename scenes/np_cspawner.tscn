@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dch0ofq2g1nh8"]
+
+[ext_resource type="Script" uid="uid://bk4moiqmpkc43" path="res://scripts/np_cspawner.gd" id="1_l17e0"]
+[ext_resource type="PackedScene" uid="uid://u17o65mvxilf" path="res://scenes/npc.tscn" id="2_ycu7y"]
+
+[node name="NPCspawner" type="Node2D" unique_id=1019575711]
+script = ExtResource("1_l17e0")
+npc_scene = ExtResource("2_ycu7y")

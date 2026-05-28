@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ll63in2s4i4n"]
 
 [ext_resource type="Script" uid="uid://3lq05hn7sbrb" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://wpr0n1mio2ty" path="res://art/background/main_bg.png" id="2_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://cmjf8vmejqqc2" path="res://art/background/main_bg.png" id="2_jbj1t"]
 [ext_resource type="Script" uid="uid://dbmralvhsfff6" path="res://scripts/cursor_button.gd" id="3_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://vqfs8qhanu14" path="res://art/stands/yellow_stall_short.png" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bij58bbornsja" path="res://scripts/stand.gd" id="4_tbgi4"]
@@ -17,7 +17,8 @@
 [ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="12_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://dym2m4ck4obc5" path="res://art/background/completion_bg.png" id="13_a8y0u"]
 [ext_resource type="Script" uid="uid://cmfxb4t3em1mh" path="res://scripts/completion_screen.gd" id="13_trceg"]
-[ext_resource type="PackedScene" uid="uid://d2rocs5frm4kk" path="res://scenes/npc_1.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" uid="uid://dch0ofq2g1nh8" path="res://scenes/np_cspawner.tscn" id="14_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://b00ut354vph2n" path="res://art/background/trees.png" id="15_0ld40"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbj1t"]
 
@@ -93,22 +94,39 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb6dy"]
-bg_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
-border_width_left = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
+bg_color = Color(0.7607843, 0, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.9372549, 0.7490196, 0.015686275, 1)
+border_color = Color(0.4392157, 0, 0.05490196, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trceg"]
-bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
-border_width_left = 5
-border_width_top = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og1vs"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wyq8"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
@@ -811,7 +829,7 @@ position = Vector2(130.40002, 87.84802)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("6_dp3eg")
 region_enabled = true
-region_rect = Rect2(0, 200, 100, 100)
+region_rect = Rect2(0, 300, 100, 100)
 
 [node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/GridContainer/SnackDo" unique_id=68861480]
 position = Vector2(131.20001, 67.324005)
@@ -909,19 +927,16 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_y6deb")
 text = "Unlock For $100"
 script = ExtResource("3_jkv2x")
 
-[node name="NPC1" parent="." unique_id=1989792400 instance=ExtResource("17_muem4")]
-position = Vector2(584, 328)
+[node name="NPCspawner" parent="." unique_id=1019575711 instance=ExtResource("14_dp3eg")]
+
+[node name="Trees" type="Sprite2D" parent="." unique_id=1049459296]
+position = Vector2(576, 325)
+texture = ExtResource("15_0ld40")
 
 [node name="PopupLayer" type="CanvasLayer" parent="." unique_id=559733431]
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1773725106]
 layer = 2
-
-[node name="SettingsPopup" parent="UILayer" unique_id=760922124 instance=ExtResource("9_85g3d")]
-offset_left = -200.0
-offset_top = -150.0
-offset_right = 200.0
-offset_bottom = 150.0
 
 [node name="MilestonePopup" type="Panel" parent="UILayer" unique_id=19173460]
 visible = false
@@ -945,6 +960,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -974,15 +990,23 @@ test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="Button" parent="UILayer/MilestonePopup/VBoxContainer" unique_id=1895224568]
-layout_mode = 2
+[node name="CloseButton" type="Button" parent="UILayer/MilestonePopup" unique_id=1895224568]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 11.0
+offset_right = 433.0
+offset_bottom = 45.0
 theme_override_fonts/font = ExtResource("12_eb6dy")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_eb6dy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_trceg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_trceg")
-text = "Close"
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ld40")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_og1vs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2wyq8")
+text = "x"
 script = ExtResource("3_jkv2x")
+
+[node name="SettingsPopup" parent="UILayer" unique_id=760922124 instance=ExtResource("9_85g3d")]
+offset_top = -124.95203
+offset_bottom = 125.04797
 
 [node name="CompletionScreen" type="TextureRect" parent="UILayer" unique_id=1321773266]
 visible = false
@@ -1081,6 +1105,6 @@ script = ExtResource("3_jkv2x")
 [connection signal="pressed" from="ScrollContainer/GridContainer/DessertCafe/UnlockButton" to="ScrollContainer/GridContainer/DessertCafe" method="_on_unlock_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/SnackDo/UpgradeButton" to="ScrollContainer/GridContainer/SnackDo" method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/SnackDo/UnlockButton" to="ScrollContainer/GridContainer/SnackDo" method="_on_unlock_button_pressed"]
-[connection signal="pressed" from="UILayer/MilestonePopup/VBoxContainer/CloseButton" to="UILayer/MilestonePopup" method="_on_close_button_pressed"]
+[connection signal="pressed" from="UILayer/MilestonePopup/CloseButton" to="UILayer/MilestonePopup" method="_on_close_button_pressed"]
 [connection signal="pressed" from="UILayer/CompletionScreen/CenterContainer/VBoxContainer/HBoxContainer/RestartButton" to="UILayer/CompletionScreen" method="_on_restart_button_pressed"]
 [connection signal="pressed" from="UILayer/CompletionScreen/CenterContainer/VBoxContainer/HBoxContainer/TitleButton" to="UILayer/CompletionScreen" method="_on_title_button_pressed"]

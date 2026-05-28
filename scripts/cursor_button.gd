@@ -10,6 +10,8 @@ func _on_hover():
 	CursorManager.hovered_button = self
 	CursorManager.set_hover_cursor()
 
+	AudioManager.play_sfx(AudioManager.hover_sound)
+
 func _on_exit():
 	if CursorManager.hovered_button == self:
 		CursorManager.hovered_button = null
@@ -18,6 +20,7 @@ func _on_exit():
 
 func _on_down():
 	CursorManager.set_click_cursor()
+	AudioManager.play_sfx(AudioManager.click_sound)
 
 func _on_up():
 	CursorManager.set_hover_cursor()

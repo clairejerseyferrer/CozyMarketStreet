@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b304e42bhn13"]
 
 [ext_resource type="Script" uid="uid://dkij7rmihvrmq" path="res://scripts/title_screen.gd" id="1_qyuap"]
-[ext_resource type="Texture2D" uid="uid://cksje5y1t67mu" path="res://art/background/title_bg.png" id="2_85feu"]
+[ext_resource type="Texture2D" uid="uid://l1kikty7vmkh" path="res://art/background/title_bg.png" id="2_85feu"]
 [ext_resource type="PackedScene" uid="uid://6qlivtdh70o8" path="res://scenes/settings_popup.tscn" id="2_ch40n"]
 [ext_resource type="FontFile" uid="uid://dph7ik7faihpt" path="res://fonts/Super Bubble.ttf" id="3_8k5og"]
 [ext_resource type="FontFile" uid="uid://cd0jxhrg4g33b" path="res://fonts/bubblegun.ttf" id="3_dfj8j"]
@@ -79,20 +79,41 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfj8j"]
-bg_color = Color(0.17451173, 0.30877715, 0.18808582, 1)
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ej01"]
-bg_color = Color(0.50980395, 0.654902, 0.36078432, 1)
-border_width_left = 5
+bg_color = Color(0.7607843, 0, 0.18039216, 1)
+border_width_left = 2
 border_width_top = 2
 border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4392157, 0, 0.05490196, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vfo2"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.1764706, 0.30980393, 0.1882353, 1)
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjcsb"]
+bg_color = Color(0.4392157, 0, 0.05490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.76392704, 0, 0.12861472, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="TitleScreen" type="Control" unique_id=89890169]
 layout_mode = 3
@@ -103,49 +124,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qyuap")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1371997676]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 0.6862745, 1)
-
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1217722724]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_85feu")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1468705639]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MainMenuContainer" type="VBoxContainer" parent="CenterContainer" unique_id=706938287]
-layout_mode = 2
-theme_override_constants/separation = 75
-alignment = 1
-
-[node name="TitleLabel" type="Label" parent="CenterContainer/MainMenuContainer" unique_id=1989509444]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.50980395, 0.654902, 0.36078432, 1)
-theme_override_constants/outline_size = 35
-theme_override_fonts/font = ExtResource("3_8k5og")
-theme_override_font_sizes/font_size = 60
-text = "Cozy Market Street"
-
-[node name="ButtonsContainer" type="VBoxContainer" parent="CenterContainer/MainMenuContainer" unique_id=1951140287]
+[node name="ButtonsContainer" type="VBoxContainer" parent="." unique_id=1951140287]
 custom_minimum_size = Vector2(10, 100)
-layout_mode = 2
-theme_override_constants/separation = 20
+layout_mode = 0
+offset_left = 451.0
+offset_top = 350.0
+offset_right = 701.0
+offset_bottom = 650.0
+theme_override_constants/separation = 12
 
-[node name="PlayButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=435300915]
+[node name="PlayButton" type="Button" parent="ButtonsContainer" unique_id=435300915]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -160,7 +154,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
 text = "PLAY"
 script = ExtResource("4_4l16e")
 
-[node name="SettingsButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=2528865]
+[node name="SettingsButton" type="Button" parent="ButtonsContainer" unique_id=2528865]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -175,7 +169,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
 text = "SETTINGS"
 script = ExtResource("4_4l16e")
 
-[node name="CreditsButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=505278473]
+[node name="CreditsButton" type="Button" parent="ButtonsContainer" unique_id=505278473]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -190,7 +184,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w20ru")
 text = "CREDITS"
 script = ExtResource("4_4l16e")
 
-[node name="QuitButton" type="Button" parent="CenterContainer/MainMenuContainer/ButtonsContainer" unique_id=273229299]
+[node name="QuitButton" type="Button" parent="ButtonsContainer" unique_id=273229299]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -203,11 +197,10 @@ text = "QUIT"
 script = ExtResource("4_4l16e")
 
 [node name="SettingsPopup" parent="." unique_id=760922124 instance=ExtResource("2_ch40n")]
+visible = false
 layout_mode = 1
-offset_left = -200.0
-offset_top = -150.0
-offset_right = 200.0
-offset_bottom = 150.0
+offset_top = -124.95203
+offset_bottom = 125.04797
 
 [node name="CreditsPopup" type="Panel" parent="." unique_id=654760144]
 visible = false
@@ -232,6 +225,7 @@ anchors_preset = -1
 anchor_top = 0.05
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -250,7 +244,8 @@ theme_override_fonts/normal_font = ExtResource("3_dfj8j")
 theme_override_fonts/bold_font = ExtResource("3_8k5og")
 theme_override_fonts/italics_font = ExtResource("3_dfj8j")
 bbcode_enabled = true
-text = "[center][b]Developed By[/b][/center]
+text = "
+[center][b]Developed By[/b][/center]
 
 [color=#2D4F30][b]Claire Jersey Ferrer[/b][/color]
 [i]Lead Developer / Game Director[/i]
@@ -293,6 +288,7 @@ collect_coin_3 by Gravity Sound
 
 collect_coin_7 by Gravity Sound
 
+Modern User Interface Sound Effects by Creator Assets
 
 
 [center][b]UI Assets[/b][/center]
@@ -302,22 +298,31 @@ Bubblegun Font by Simon Thomaschke
 Super Bubble Font by fsuarez913
 
 Cursor Pixel Pack by Kenney
+
+
 "
 horizontal_alignment = 1
 
-[node name="CloseButton" type="Button" parent="CreditsPopup/VBoxContainer" unique_id=1695853173]
+[node name="CloseButton" type="Button" parent="CreditsPopup" unique_id=1695853173]
 custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
+layout_mode = 0
+offset_left = 434.0
+offset_top = 12.0
+offset_right = 484.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.76392704, 0, 0.12861472, 1)
 theme_override_fonts/font = ExtResource("3_dfj8j")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3ej01")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3ej01")
-text = "Close"
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ej01")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1vfo2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hjcsb")
+text = "x"
 script = ExtResource("4_4l16e")
 
-[connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="CenterContainer/MainMenuContainer/ButtonsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="CreditsPopup/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsPopup/CloseButton" to="." method="_on_close_button_pressed"]

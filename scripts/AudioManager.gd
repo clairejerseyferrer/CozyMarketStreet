@@ -5,7 +5,9 @@ var sfx_enabled = true
 
 var upgrade_sound = preload("res://audio/sfx/collect_coin_3.wav")
 var unlock_sound = preload("res://audio/sfx/collect_coin_7.wav")
-#var click_sound = preload("res://audio/sfx/click.wav")
+var click_sound = preload("res://audio/sfx/click.mp3")
+var hover_sound = preload("res://audio/sfx/hover.mp3")
+var earn_sound = preload("res://audio/sfx/earn-money.mp3")
 var bgm_player: AudioStreamPlayer
 
 var bgm_music = preload("res://audio/music/Pastel Dreaming.mp3")
