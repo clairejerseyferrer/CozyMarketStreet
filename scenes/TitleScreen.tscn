@@ -197,7 +197,6 @@ text = "QUIT"
 script = ExtResource("4_4l16e")
 
 [node name="SettingsPopup" parent="." unique_id=760922124 instance=ExtResource("2_ch40n")]
-visible = false
 layout_mode = 1
 offset_top = -124.95203
 offset_bottom = 125.04797

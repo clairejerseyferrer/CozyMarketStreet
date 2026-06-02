@@ -13,7 +13,7 @@ config_version=5
 config/name="LemonadeStandIdle"
 run/main_scene="uid://b304e42bhn13"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dqscaaqsxricd"
 
 [audio]
 
